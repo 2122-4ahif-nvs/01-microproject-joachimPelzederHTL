@@ -8,17 +8,19 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import io.quarkus.qute.TemplateInstance;
-import io.quarkus.qute.Template;
+import io.quarkus.qute.CheckedTemplate;
 
 @Path("hello")
 public class HelloResource {
 
-    @Inject
-    Template hello;
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance hello(String name);
+    }
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public TemplateInstance get(@QueryParam("name") String name) {
-        return hello.data("name", name);
+        return Templates.hello(name);
     }
 }
