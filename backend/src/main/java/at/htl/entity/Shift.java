@@ -21,10 +21,10 @@ public class Shift {
     @NotBlank(message = "Shift should have a name!")
     private String shiftName;
     @Max(message = "24 is the maximum!", value = 24)
-    @Min(message = "There is no negativ time", value = 0)
+    @Min(message = "There is no negative time", value = 0)
     private int beginn;
     @Max(message = "24 is the maximum!", value = 24)
-    @Min(message = "There is no negativ time", value = 0)
+    @Min(message = "There is no negative time", value = 0)
     private int end;
 
     public Shift() {
