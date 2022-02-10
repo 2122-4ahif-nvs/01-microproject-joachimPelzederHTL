@@ -7,7 +7,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
 class HelloRepositoryTest implements Greeter{
 
     @GrpcClient
@@ -21,3 +21,5 @@ class HelloRepositoryTest implements Greeter{
         assertThat(message.get(5, TimeUnit.SECONDS)).isEqualTo("Hello Quarkus");
     }
 }
+
+ */

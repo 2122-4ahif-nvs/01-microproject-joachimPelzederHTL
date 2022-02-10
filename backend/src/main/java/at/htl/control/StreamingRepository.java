@@ -2,8 +2,8 @@ package at.htl.control;
 import io.quarkus.grpc.GrpcService;
 
 @GrpcService
-public class StreamingRepository implements Streaming{
-
+public class StreamingRepository {//implements Streaming{
+/*
     @Override
     public Multi<Item> source(Empty request) {
         // Just returns a stream emitting an item every 2ms and stopping after 10 items.
@@ -32,4 +32,6 @@ public class StreamingRepository implements Streaming{
                 .onItem().scan(() -> 0L, Long::sum)
                 .onItem().transform(l -> Item.newBuilder().setValue(Long.toString(l)).build());
     }
+
+ */
 }

@@ -1,9 +1,9 @@
 package at.htl.boundary;
 
-import examples.Greeter;
-import examples.GreeterGrpc;
-import examples.HelloReply;
-import examples.HelloRequest;
+//import examples.Greeter;
+//import examples.GreeterGrpc;
+//import examples.HelloReply;
+//import examples.HelloRequest;
 import io.quarkus.grpc.GrpcClient;
 import io.smallrye.mutiny.Uni;
 
@@ -13,9 +13,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/hello")
+//@Path("/hello")
 public class HelloGrpcResource {
-
+    /*
     @GrpcClient
     Greeter hello;
 
@@ -31,4 +31,5 @@ public class HelloGrpcResource {
         return hello.sayHello(HelloRequest.newBuilder().setName(name).build())
                 .onItem().transform(helloReply -> helloReply.getMessage());
     }
+     */
 }
