@@ -5,10 +5,8 @@ import at.htl.entity.Employee;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.validation.Valid;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.xml.transform.Result;
 import javax.xml.validation.Validator;
@@ -40,6 +38,14 @@ public class EmployeeResource {
         } else {
             return new Result(violations);
         }
+    }
+
+    @Path("/end-point-method-validation")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Result tryMeEndPointMethodValidation(@Valid Employee employee){
+        return new Result("Employee is valid! It was validated by end point method validation.");
     }
 
     public static class Result{
