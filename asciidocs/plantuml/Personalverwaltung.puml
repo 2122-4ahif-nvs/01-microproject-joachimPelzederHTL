@@ -1,27 +1,31 @@
 @startuml
 
 class Employee{
-
+    id : Long
+    firstName : String
+    lastName : String
+    salary : int
 }
 
 class Shift{
-
+    id : Long
+    leader : ShiftLeader
+    workers : List<ShiftWorker>
+    beginn : int
+    end : int
 }
 
 class ShiftLeader{
-
+    extraSal : int
 }
 
 class ShiftWorker{
-
+    workStation : Workstation
 }
 
 class Workstation{
-
-}
-
-class Working{
-
+    id : Long
+    nameOfStation : String
 }
 
 Shift "1" -- "*" ShiftLeader : < is Leader of
@@ -30,8 +34,7 @@ Shift "1" -- "*" ShiftWorker : > has
 ShiftLeader --|> Employee
 ShiftWorker --|> Employee
 
-ShiftWorker "*" -- "*" Workstation : > works at
+ShiftWorker "1" -- "*" Workstation : > works at
 
-(ShiftWorker,Workstation) .. Working
 
 @enduml
