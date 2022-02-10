@@ -2,16 +2,21 @@ package at.htl.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Employee {
 
     @Id
-    Long Id;
+    private Long Id;
 
-    String firstName;
-    String lastName;
-    int salary;
+    @NotBlank(message = "First Name should not be blank!")
+    private String firstName;
+    @NotBlank(message = "Last Name should not be blank!")
+    private String lastName;
+    @Min(message = "Employees need a proper salary", value = 600)
+    private int salary;
 
     public Employee() {
     }
