@@ -30,18 +30,23 @@ public class EmployeeResource {
         return employeeRepository.findAll().list();
     }
 
+    /*
     @Path("/manual-validation")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Result tryMeManualValidation(Employee employee){
         Set<ConstraintViolation<Employee>> violations = validator.validate(employee);
+
+        //employee wird nicht als Source erkannt
+
         if(violations.isEmpty()){
             return new Result("Employee is valid! It was validated by manual validation.");
         } else {
             return new Result(violations);
         }
     }
+     */
 
     @Path("/end-point-method-validation")
     @POST

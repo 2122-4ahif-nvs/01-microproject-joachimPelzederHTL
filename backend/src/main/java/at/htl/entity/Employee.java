@@ -1,6 +1,8 @@
 package at.htl.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -9,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 public class Employee {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     @NotBlank(message = "First Name should not be blank!")

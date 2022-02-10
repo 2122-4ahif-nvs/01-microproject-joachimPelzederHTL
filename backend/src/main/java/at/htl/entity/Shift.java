@@ -1,21 +1,31 @@
 package at.htl.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
 public class Shift {
 
     @Id
-    Long id;
-    @ManyToOne
-    ShiftLeader leader;
-    @OneToMany(cascade = CascadeType.ALL)
-    List<ShiftWorker> workers;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    String shiftName;
-    int beginn;
-    int end;
+    @ManyToOne
+    private ShiftLeader leader;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private List<ShiftWorker> workers;
+
+    @NotBlank(message = "Shift should have a name!")
+    private String shiftName;
+    @Max(message = "24 is the maximum!", value = 24)
+    @Min(message = "There is no negativ time", value = 0)
+    private int beginn;
+    @Max(message = "24 is the maximum!", value = 24)
+    @Min(message = "There is no negativ time", value = 0)
+    private int end;
 
     public Shift() {
     }

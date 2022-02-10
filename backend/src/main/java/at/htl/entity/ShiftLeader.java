@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 @Entity
 public class ShiftLeader extends Employee {
 
-    int extraSal;
+    private int extraSal;
 
     public ShiftLeader() {
     }

@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 public class ShiftWorker extends Employee{
 
     @ManyToOne(cascade = CascadeType.ALL)
-    Workstation workstation;
+    private Workstation workstation;
 
     public ShiftWorker() {
     }
