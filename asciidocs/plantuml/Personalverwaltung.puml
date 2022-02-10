@@ -1,0 +1,11 @@
+@startuml
+
+class Employee(){
+
+}
+
+class Company(){
+
+}
+
+@enduml
