@@ -1,4 +1,4 @@
-= My Project
+= Personalverwaltung
 firstname lastname
 1.0.0, yyyy-mm-dd: Some notes
 ifndef::imagesdir[:imagesdir: images]
@@ -14,8 +14,15 @@ ifdef::backend-html5[]
 // print the toc here (not at the default position)
 //toc::[]
 
-== Header 1
+== CLD
 
+[plantuml, align=left]
+----
+include::plantuml/Personalverwaltung.puml[]
+----
 
-=== Header 2
+== Erklärung
+
+Das Miniprojekt verwaltet die verschiedenen
+Schichten innerhalb eines Betriebes.
 
