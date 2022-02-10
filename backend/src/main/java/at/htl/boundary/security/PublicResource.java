@@ -1,4 +1,4 @@
-package at.htl.boundary;
+package at.htl.boundary.security;
 
 import javax.annotation.security.PermitAll;
 import javax.ws.rs.GET;

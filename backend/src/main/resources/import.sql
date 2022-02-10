@@ -1,11 +1,9 @@
-quarkus.datasource.db-kind=derby
-quarkus.datasource.username=app
-quarkus.datasource.password=app
-quarkus.datasource.jdbc.url=jdbc:derby://localhost:1527/db;create=true
+CREATE TABLE test_user (
+                           id INT,
+                           username VARCHAR(255),
+                           password VARCHAR(255),
+                           role VARCHAR(255)
+);
 
-quarkus.datasource.devservices.enabled=false
-quarkus.hibernate-orm.database.generation=drop-and-create
-
-quarkus.http.root-path=/api
-
-quarkus.http.cors=true
+INSERT INTO test_user (id, username, password, role) VALUES (1, 'admin', 'admin', 'admin');
+INSERT INTO test_user (id, username, password, role) VALUES (2, 'user','user', 'user');
