@@ -1,7 +1,9 @@
 package at.htl.boundary;
 
-import io.quarkus.example.Greeter;
-import io.quarkus.example.HelloRequest;
+import examples.Greeter;
+import examples.GreeterGrpc;
+import examples.HelloReply;
+import examples.HelloRequest;
 import io.quarkus.grpc.GrpcClient;
 import io.smallrye.mutiny.Uni;
 
