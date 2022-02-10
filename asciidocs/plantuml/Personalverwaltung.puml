@@ -1,11 +1,37 @@
 @startuml
 
-class Employee(){
+class Employee{
 
 }
 
-class Company(){
+class Shift{
 
 }
+
+class ShiftLeader{
+
+}
+
+class ShiftWorker{
+
+}
+
+class Workstation{
+
+}
+
+class Working{
+
+}
+
+Shift "1" -- "*" ShiftLeader : < is Leader of
+Shift "1" -- "*" ShiftWorker : > has
+
+ShiftLeader --|> Employee
+ShiftWorker --|> Employee
+
+ShiftWorker "*" -- "*" Workstation : > works at
+
+(ShiftWorker,Workstation) .. Working
 
 @enduml
