@@ -5,6 +5,7 @@ import at.htl.entity.Employee;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -31,6 +32,8 @@ public class EmployeeResource {
 
     @Path("/manual-validation")
     @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Result tryMeManualValidation(Employee employee){
         Set<ConstraintViolation<Employee>> violations = validator.validate(employee);
         if(violations.isEmpty()){
@@ -46,6 +49,19 @@ public class EmployeeResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Result tryMeEndPointMethodValidation(@Valid Employee employee){
         return new Result("Employee is valid! It was validated by end point method validation.");
+    }
+
+    @Path("/repository-method-validation")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Result tryMeServiceMethodValidation(Employee employee){
+        try {
+            employeeRepository.persist(employee);
+            return new Result("Employee is valid! It was validated by service method validation.");
+        } catch (ConstraintViolationException e){
+            return new Result(e.getConstraintViolations());
+        }
     }
 
     public static class Result{
